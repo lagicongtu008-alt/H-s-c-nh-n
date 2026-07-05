@@ -6,17 +6,18 @@
 <title>Huỳnh Đức Nhân — Hồ sơ cá nhân</title>
 <style>
   :root {
-    --paper: #F3EEE2;
-    --paper-raised: #EAE2CD;
-    --ink: #1C1A15;
-    --ink-soft: #5B5548;
-    --line: rgba(28, 26, 21, 0.14);
-    --accent: #A9762A;
-    --accent-strong: #8C5F1D;
-    --up: #3F7D4F;
-    --shadow: rgba(30, 25, 15, 0.12);
+    --bg: #F5F3EE;
+    --bg-raised: #FFFFFF;
+    --ink: #131B2E;
+    --ink-soft: #4C5567;
+    --line: rgba(19, 27, 46, 0.12);
+    --accent: #2F5FE0;
+    --accent-strong: #1D3F9E;
+    --hero-grad-1: #101B34;
+    --hero-grad-2: #2C5FE0;
+    --shadow: rgba(20, 30, 60, 0.16);
 
-    --font-display: Georgia, "Noto Serif", "Times New Roman", serif;
+    --font-display: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
     --font-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
     --font-mono: "Cascadia Code", "SF Mono", Consolas, "Roboto Mono", monospace;
 
@@ -25,271 +26,362 @@
     --space-3: 1.75rem;
     --space-4: 2.75rem;
     --space-5: 4.5rem;
-    --space-6: 6.5rem;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #14120D;
-      --paper-raised: #1D1A13;
-      --ink: #EDE6D6;
-      --ink-soft: #A79E8A;
-      --line: rgba(237, 230, 214, 0.14);
-      --accent: #E3A83F;
-      --accent-strong: #F0BE63;
-      --up: #6FBE84;
-      --shadow: rgba(0, 0, 0, 0.45);
+      --bg: #0B0F17;
+      --bg-raised: #141A26;
+      --ink: #E7E9EE;
+      --ink-soft: #9AA3B5;
+      --line: rgba(231, 233, 238, 0.14);
+      --accent: #5B8CFF;
+      --accent-strong: #8FB0FF;
+      --hero-grad-1: #0A1220;
+      --hero-grad-2: #1E3F91;
+      --shadow: rgba(0, 0, 0, 0.55);
     }
   }
 
   :root[data-theme="dark"] {
-    --paper: #14120D;
-    --paper-raised: #1D1A13;
-    --ink: #EDE6D6;
-    --ink-soft: #A79E8A;
-    --line: rgba(237, 230, 214, 0.14);
-    --accent: #E3A83F;
-    --accent-strong: #F0BE63;
-    --up: #6FBE84;
-    --shadow: rgba(0, 0, 0, 0.45);
+    --bg: #0B0F17;
+    --bg-raised: #141A26;
+    --ink: #E7E9EE;
+    --ink-soft: #9AA3B5;
+    --line: rgba(231, 233, 238, 0.14);
+    --accent: #5B8CFF;
+    --accent-strong: #8FB0FF;
+    --hero-grad-1: #0A1220;
+    --hero-grad-2: #1E3F91;
+    --shadow: rgba(0, 0, 0, 0.55);
   }
 
   :root[data-theme="light"] {
-    --paper: #F3EEE2;
-    --paper-raised: #EAE2CD;
-    --ink: #1C1A15;
-    --ink-soft: #5B5548;
-    --line: rgba(28, 26, 21, 0.14);
-    --accent: #A9762A;
-    --accent-strong: #8C5F1D;
-    --up: #3F7D4F;
-    --shadow: rgba(30, 25, 15, 0.12);
+    --bg: #F5F3EE;
+    --bg-raised: #FFFFFF;
+    --ink: #131B2E;
+    --ink-soft: #4C5567;
+    --line: rgba(19, 27, 46, 0.12);
+    --accent: #2F5FE0;
+    --accent-strong: #1D3F9E;
+    --hero-grad-1: #101B34;
+    --hero-grad-2: #2C5FE0;
+    --shadow: rgba(20, 30, 60, 0.16);
   }
 
   * { box-sizing: border-box; }
 
   body {
     margin: 0;
-    background: var(--paper);
+    background: var(--bg);
     color: var(--ink);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
 
   a { color: inherit; }
-
-  .page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  /* ---------- Ticker ---------- */
-  .ticker {
-    border-bottom: 1px solid var(--line);
-    overflow: hidden;
-    white-space: nowrap;
-    background: var(--paper-raised);
-  }
-
-  .ticker-track {
-    display: inline-flex;
-    animation: scroll-ticker 32s linear infinite;
-  }
-
-  .ticker:hover .ticker-track {
-    animation-play-state: paused;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .ticker-track { animation: none; }
-  }
-
-  .ticker-seg {
-    padding: 0.55rem 0;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: var(--ink-soft);
-  }
-
-  .ticker-seg .up { color: var(--up); }
-  .ticker-seg .sym { color: var(--ink); font-weight: 700; }
-
-  @keyframes scroll-ticker {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  main {
-    flex: 1;
-    width: 100%;
-  }
+  h1, h2 { text-wrap: balance; }
 
   .wrap {
-    max-width: 780px;
+    max-width: 1080px;
     margin: 0 auto;
     padding-inline: 1.5rem;
   }
 
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--bg-raised);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.1rem;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2.2rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible { color: var(--accent); }
+
   /* ---------- Hero ---------- */
   .hero {
-    padding-block: var(--space-5) var(--space-4);
+    background: linear-gradient(135deg, var(--hero-grad-1), var(--hero-grad-2));
+    color: #F3F5FA;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: var(--space-4);
+    padding-block: var(--space-5);
+  }
+
+  .tagline {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 0.4rem 0.8rem;
+    border-radius: 3px;
+    margin-bottom: var(--space-2);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.3rem, 4.6vw, 3.5rem);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--space-2);
+  }
+
+  .hero h1 .role {
+    display: block;
+    color: #BFD0FF;
+    font-weight: 600;
+  }
+
+  .hero p.lede {
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: rgba(243, 245, 250, 0.82);
+    max-width: 52ch;
+    margin: 0 0 var(--space-3);
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-3);
+  }
+
+  .btn {
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: 3px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn-solid {
+    background: #FFFFFF;
+    color: var(--hero-grad-1);
+  }
+  .btn-solid:hover { background: #BFD0FF; }
+
+  .btn-outline {
+    background: transparent;
+    color: #F3F5FA;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+  }
+  .btn-outline:hover { border-color: #FFFFFF; background: rgba(255,255,255,0.08); }
+
+  .btn:focus-visible { outline: 2px solid #BFD0FF; outline-offset: 3px; }
+
+  .meta-row {
+    display: flex;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(243, 245, 250, 0.6);
+  }
+
+  /* ---------- Hero photo placeholder ---------- */
+  .hero-photo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 340px;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.16), rgba(255,255,255,0) 70%);
+  }
+  .blob-1 { width: 320px; height: 320px; top: -30px; right: -40px; }
+  .blob-2 { width: 180px; height: 180px; bottom: -20px; left: 10px; background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.1), rgba(255,255,255,0) 70%); }
+
+  .photo-frame {
+    position: relative;
+    width: min(280px, 80%);
+    aspect-ratio: 4 / 5;
+    border: 1.5px dashed rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .silhouette {
+    width: 74px;
+    height: 74px;
+    position: relative;
+    opacity: 0.55;
+  }
+  .silhouette::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    width: 34px; height: 34px;
+    background: #F3F5FA;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+  .silhouette::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 50%;
+    width: 70px; height: 38px;
+    background: #F3F5FA;
+    border-radius: 40px 40px 0 0;
+    transform: translateX(-50%);
+  }
+
+  .photo-frame .hint {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: rgba(243, 245, 250, 0.65);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 780px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo { order: -1; min-height: 260px; }
+  }
+
+  /* ---------- About ---------- */
+  section.section {
+    padding-block: var(--space-5);
+    border-bottom: 1px solid var(--line);
   }
 
   .eyebrow {
     font-family: var(--font-mono);
     font-size: 0.72rem;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent-strong);
-    margin: 0 0 var(--space-2);
+    color: var(--accent);
+    margin: 0 0 var(--space-1);
   }
 
-  h1 {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(2.6rem, 7vw, 4.4rem);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin: 0 0 var(--space-2);
-    text-wrap: balance;
+  h2 {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 800;
+    margin: 0 0 var(--space-3);
   }
 
-  .subtitle {
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    max-width: 46ch;
-    line-height: 1.55;
-    margin: 0 0 var(--space-4);
-  }
-
-  /* ---------- Chart panel ---------- */
-  .chart-panel {
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    background: var(--paper-raised);
-    padding: var(--space-3) var(--space-3) var(--space-2);
-    box-shadow: 0 12px 30px -18px var(--shadow);
-  }
-
-  .chart-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: var(--space-2);
-    gap: var(--space-2);
-  }
-
-  .chart-head .label {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-
-  .chart-head .value {
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    color: var(--up);
-    font-variant-numeric: tabular-nums;
-  }
-
-  #growthChart {
-    display: block;
-    width: 100%;
-    height: 200px;
-  }
-
-  /* ---------- Quote bar ---------- */
-  .quote-bar {
-    padding-block: var(--space-4);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .quote-item {
-    padding-inline: var(--space-2);
-    border-left: 1px solid var(--line);
-  }
-
-  .quote-item:first-child { border-left: none; padding-left: 0; }
-
-  .quote-item .label {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 0.4rem;
-  }
-
-  .quote-item .value {
-    display: block;
-    font-family: var(--font-mono);
+  .about p {
     font-size: 1.05rem;
-    font-variant-numeric: tabular-nums;
-    line-height: 1.3;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    max-width: 68ch;
+    margin: 0;
   }
 
-  @media (max-width: 620px) {
-    .quote-bar { grid-template-columns: repeat(2, 1fr); row-gap: var(--space-3); }
-    .quote-item:nth-child(3) { border-left: none; padding-left: 0; }
-  }
-
-  /* ---------- Thesis ---------- */
-  .thesis {
-    padding-block: var(--space-5);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-
-  .thesis-item {
+  /* ---------- Focus / Định hướng cards ---------- */
+  .focus-grid {
     display: grid;
-    grid-template-columns: 11ch 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-3);
   }
 
-  .thesis-item .kicker {
+  @media (max-width: 680px) {
+    .focus-grid { grid-template-columns: 1fr; }
+  }
+
+  .focus-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: var(--space-3);
+    box-shadow: 0 14px 30px -22px var(--shadow);
+  }
+
+  .focus-card .kicker {
+    display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent-strong);
-    padding-top: 0.3rem;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: var(--space-2);
   }
 
-  .thesis-item p {
-    margin: 0;
-    font-size: 1.05rem;
+  .focus-card h3 {
+    font-size: 1.15rem;
+    margin: 0 0 0.6rem;
+  }
+
+  .focus-card p {
+    font-size: 0.98rem;
     line-height: 1.65;
-    max-width: 56ch;
-  }
-
-  @media (max-width: 560px) {
-    .thesis-item { grid-template-columns: 1fr; gap: var(--space-1); }
+    color: var(--ink-soft);
+    margin: 0;
   }
 
   /* ---------- Contact ---------- */
-  .contact {
-    padding-block: var(--space-4) var(--space-6);
-  }
-
   .contact-card {
+    background: var(--bg-raised);
     border: 1px solid var(--line);
-    border-radius: 4px;
-    background: var(--paper-raised);
+    border-radius: 6px;
     padding: var(--space-3);
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: var(--space-3);
     flex-wrap: wrap;
+    box-shadow: 0 14px 30px -22px var(--shadow);
   }
 
   .contact-card .label {
@@ -306,284 +398,124 @@
     font-size: 1.05rem;
   }
 
-  .btn {
+  .btn-contact {
     font-family: var(--font-body);
     font-size: 0.92rem;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
-    color: var(--paper);
+    color: #fff;
     background: var(--accent);
-    padding: 0.7rem 1.3rem;
+    padding: 0.75rem 1.4rem;
     border-radius: 3px;
     transition: background 0.15s ease;
     white-space: nowrap;
   }
-
-  .btn:hover { background: var(--accent-strong); }
-  .btn:focus-visible {
-    outline: 2px solid var(--accent-strong);
-    outline-offset: 3px;
-  }
+  .btn-contact:hover { background: var(--accent-strong); }
+  .btn-contact:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
 
   footer {
-    border-top: 1px solid var(--line);
     padding-block: var(--space-3);
   }
 
   footer .wrap {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     letter-spacing: 0.06em;
     color: var(--ink-soft);
   }
 </style>
 </head>
 <body>
-<div class="page">
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track" id="tickerTrack"></div>
+<nav>
+  <div class="wrap nav-row">
+    <div class="logo">H.Đ.<span>Nhân</span></div>
+    <ul class="nav-links">
+      <li><a href="#home">Trang chủ</a></li>
+      <li><a href="#about">Giới thiệu</a></li>
+      <li><a href="#dinh-huong">Định hướng</a></li>
+      <li><a href="#contact">Liên hệ</a></li>
+    </ul>
   </div>
+</nav>
 
-  <main>
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="tagline">Xin chào</span>
+      <h1>Tôi là Huỳnh Đức Nhân<span class="role">Sinh viên Quản trị Kinh doanh</span></h1>
+      <p class="lede">Năm 3 tại Đại học Văn Lang, theo đuổi hướng phân tích dữ liệu và phân tích kỹ thuật thị trường chứng khoán — cùng tư duy lãnh đạo quyết đoán, dám đặt mục tiêu lớn.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="mailto:michaelnelson101004@gmail.com">Liên hệ với tôi →</a>
+        <a class="btn btn-outline" href="#dinh-huong">Xem định hướng →</a>
+      </div>
+      <div class="meta-row">
+        <span>Đại học Văn Lang</span><span>·</span><span>Năm 3 / 4</span>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="photo-frame">
+        <div class="silhouette"></div>
+        <span class="hint">Ảnh của bạn<br>(thay bằng ảnh thật tại đây)</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section about" id="about">
     <div class="wrap">
-      <section class="hero">
-        <p class="eyebrow">Hồ sơ cá nhân</p>
-        <h1>Huỳnh Đức Nhân</h1>
-        <p class="subtitle">Sinh viên năm 3 · Quản trị Kinh doanh · Đại học Văn Lang</p>
+      <p class="eyebrow">Giới thiệu</p>
+      <h2>Về tôi</h2>
+      <p>Mình là sinh viên năm 3 ngành Quản trị Kinh doanh tại Đại học Văn Lang. Mình quan tâm đến việc đọc hiểu số liệu và biến động thị trường tài chính, đồng thời rèn luyện phong cách lãnh đạo quyết đoán — dám nghĩ lớn, hành động nhanh, và chịu trách nhiệm với quyết định của mình.</p>
+    </div>
+  </section>
 
-        <div class="chart-panel">
-          <div class="chart-head">
-            <span class="label">Quỹ đạo phát triển</span>
-            <span class="value">Năm 3 / 4</span>
-          </div>
-          <canvas id="growthChart"></canvas>
-        </div>
-      </section>
-
-      <section class="quote-bar">
-        <div class="quote-item">
-          <span class="label">Trường</span>
-          <span class="value">Văn Lang</span>
-        </div>
-        <div class="quote-item">
-          <span class="label">Ngành học</span>
-          <span class="value">QTKD</span>
-        </div>
-        <div class="quote-item">
-          <span class="label">Năm học</span>
-          <span class="value">3 / 4</span>
-        </div>
-        <div class="quote-item">
-          <span class="label">Định hướng</span>
-          <span class="value">Data · Chứng khoán</span>
-        </div>
-      </section>
-
-      <section class="thesis">
-        <div class="thesis-item">
+  <section class="section" id="dinh-huong">
+    <div class="wrap">
+      <p class="eyebrow">Định hướng nghề nghiệp</p>
+      <h2>Hai trọng tâm mình theo đuổi</h2>
+      <div class="focus-grid">
+        <div class="focus-card">
           <span class="kicker">Phân tích</span>
-          <p>Tập trung vào phân tích dữ liệu và phân tích kỹ thuật trên thị trường chứng khoán — đọc biểu đồ, theo dõi xu hướng, và ra quyết định dựa trên số liệu thay vì cảm tính.</p>
+          <h3>Dữ liệu &amp; thị trường chứng khoán</h3>
+          <p>Tập trung phân tích dữ liệu và phân tích kỹ thuật — đọc biểu đồ, theo dõi xu hướng, ra quyết định dựa trên số liệu thay vì cảm tính.</p>
         </div>
-        <div class="thesis-item">
+        <div class="focus-card">
           <span class="kicker">Lãnh đạo</span>
+          <h3>Tư duy quyết đoán</h3>
           <p>Xây dựng phong cách lãnh đạo quyết đoán, dám đặt mục tiêu lớn và hành động nhanh — lấy cảm hứng từ Elon Musk.</p>
         </div>
-      </section>
-
-      <section class="contact">
-        <div class="contact-card">
-          <div>
-            <p class="label">Liên hệ</p>
-            <p class="email">michaelnelson101004@gmail.com</p>
-          </div>
-          <a class="btn" href="mailto:michaelnelson101004@gmail.com">Gửi email</a>
-        </div>
-      </section>
+      </div>
     </div>
-  </main>
+  </section>
 
-  <footer>
+  <section class="section" id="contact" style="border-bottom: none;">
     <div class="wrap">
-      <span>NHÂN — HỒ SƠ CÁ NHÂN</span>
-      <span>NĂM 3 · QTKD · VĂN LANG</span>
+      <p class="eyebrow">Liên hệ</p>
+      <h2>Kết nối với mình</h2>
+      <div class="contact-card">
+        <div>
+          <p class="label">Email</p>
+          <p class="email">michaelnelson101004@gmail.com</p>
+        </div>
+        <a class="btn-contact" href="mailto:michaelnelson101004@gmail.com">Gửi email</a>
+      </div>
     </div>
-  </footer>
-</div>
+  </section>
+</main>
 
-<script>
-  (function () {
-    var tickerText = 'NHÂN <span class="up">▲</span> ' +
-      '<span class="sym">QUẢN TRỊ KINH DOANH</span> · ĐẠI HỌC VĂN LANG · NĂM HỌC 3/4 · ' +
-      'ĐỊNH HƯỚNG: PHÂN TÍCH DỮ LIỆU & KỸ THUẬT THỊ TRƯỜNG CHỨNG KHOÁN &nbsp;&nbsp;&nbsp; ';
-    var track = document.getElementById('tickerTrack');
-    track.innerHTML =
-      '<span class="ticker-seg">' + tickerText + '</span>' +
-      '<span class="ticker-seg">' + tickerText + '</span>';
-
-    var canvas = document.getElementById('growthChart');
-    var ctx = canvas.getContext('2d');
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function tokens() {
-      var cs = getComputedStyle(document.documentElement);
-      return {
-        ink: cs.getPropertyValue('--ink').trim(),
-        inkSoft: cs.getPropertyValue('--ink-soft').trim(),
-        accent: cs.getPropertyValue('--accent').trim(),
-        line: cs.getPropertyValue('--line').trim(),
-        paperRaised: cs.getPropertyValue('--paper-raised').trim()
-      };
-    }
-
-    function hexToRgba(hex, alpha) {
-      var h = hex.replace('#', '');
-      if (h.length === 3) h = h.split('').map(function (c) { return c + c; }).join('');
-      var r = parseInt(h.substring(0, 2), 16);
-      var g = parseInt(h.substring(2, 4), 16);
-      var b = parseInt(h.substring(4, 6), 16);
-      return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
-    }
-
-    var labels = ['Năm 1', 'Năm 2', 'Năm 3', 'Năm 4'];
-    var xFracs = [0.04, 0.35, 0.66, 0.97];
-    var yFracs = [0.82, 0.60, 0.28, 0.08]; // lower = higher on chart
-
-    function render(progress) {
-      var dpr = window.devicePixelRatio || 1;
-      var rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, rect.width, rect.height);
-
-      var w = rect.width, h = rect.height;
-      var padTop = 10, padBottom = 26, padX = 4;
-      var plotH = h - padTop - padBottom;
-
-      var pts = xFracs.map(function (xf, i) {
-        return { x: padX + xf * (w - padX * 2), y: padTop + yFracs[i] * plotH };
-      });
-
-      var t = tokens();
-
-      // grid lines
-      ctx.strokeStyle = t.line;
-      ctx.lineWidth = 1;
-      for (var g = 0; g <= 3; g++) {
-        var gy = padTop + (plotH / 3) * g;
-        ctx.beginPath();
-        ctx.moveTo(padX, gy);
-        ctx.lineTo(w - padX, gy);
-        ctx.stroke();
-      }
-
-      // solid portion: Năm 1 -> Năm 3 (current), scaled by progress
-      var solidCount = 2; // segments from pt0->pt1->pt2
-      var totalSolid = solidCount;
-      var visible = totalSolid * progress;
-
-      function pointAt(i, frac) {
-        var a = pts[i], b = pts[i + 1];
-        return { x: a.x + (b.x - a.x) * frac, y: a.y + (b.y - a.y) * frac };
-      }
-
-      var solidPts = [pts[0]];
-      for (var s = 0; s < solidCount; s++) {
-        if (visible >= s + 1) {
-          solidPts.push(pts[s + 1]);
-        } else if (visible > s) {
-          solidPts.push(pointAt(s, visible - s));
-          break;
-        } else {
-          break;
-        }
-      }
-
-      if (solidPts.length > 1) {
-        // area fill
-        ctx.beginPath();
-        ctx.moveTo(solidPts[0].x, h - padBottom);
-        solidPts.forEach(function (p) { ctx.lineTo(p.x, p.y); });
-        ctx.lineTo(solidPts[solidPts.length - 1].x, h - padBottom);
-        ctx.closePath();
-        ctx.fillStyle = hexToRgba(t.accent, 0.14);
-        ctx.fill();
-
-        // line
-        ctx.beginPath();
-        ctx.moveTo(solidPts[0].x, solidPts[0].y);
-        solidPts.slice(1).forEach(function (p) { ctx.lineTo(p.x, p.y); });
-        ctx.strokeStyle = t.accent;
-        ctx.lineWidth = 2.25;
-        ctx.lineJoin = 'round';
-        ctx.stroke();
-      }
-
-      // current point marker (Năm 3)
-      if (progress >= 1) {
-        ctx.beginPath();
-        ctx.arc(pts[2].x, pts[2].y, 4.5, 0, Math.PI * 2);
-        ctx.fillStyle = t.accent;
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(pts[2].x, pts[2].y, 7.5, 0, Math.PI * 2);
-        ctx.strokeStyle = hexToRgba(t.accent, 0.45);
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        // dashed projection to Năm 4 (target)
-        ctx.beginPath();
-        ctx.setLineDash([4, 4]);
-        ctx.moveTo(pts[2].x, pts[2].y);
-        ctx.lineTo(pts[3].x, pts[3].y);
-        ctx.strokeStyle = hexToRgba(t.accent, 0.55);
-        ctx.lineWidth = 1.75;
-        ctx.stroke();
-        ctx.setLineDash([]);
-
-        ctx.beginPath();
-        ctx.arc(pts[3].x, pts[3].y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = t.paperRaised;
-        ctx.strokeStyle = hexToRgba(t.accent, 0.7);
-        ctx.lineWidth = 1.5;
-        ctx.fill();
-        ctx.stroke();
-      }
-
-      // x labels
-      ctx.fillStyle = t.inkSoft;
-      ctx.font = '11px ' + getComputedStyle(document.documentElement).getPropertyValue('--font-mono');
-      ctx.textAlign = 'center';
-      pts.forEach(function (p, i) {
-        var label = labels[i] + (i === 2 ? '  ·  hiện tại' : i === 3 ? '  ·  mục tiêu' : '');
-        ctx.fillText(label, p.x, h - 8);
-      });
-    }
-
-    function draw() {
-      if (reduceMotion) {
-        render(1);
-        return;
-      }
-      var start = null;
-      var duration = 900;
-      function step(ts) {
-        if (!start) start = ts;
-        var p = Math.min(1, (ts - start) / duration);
-        render(p);
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    draw();
-    window.addEventListener('resize', function () { render(1); });
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () { render(1); });
-    new MutationObserver(function () { render(1); })
-      .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-  })();
-</script>
+<footer>
+  <div class="wrap">
+    <span>© Huỳnh Đức Nhân</span>
+    <span>Quản trị Kinh doanh · Đại học Văn Lang</span>
+  </div>
+</footer>
 </body>
 </html>
