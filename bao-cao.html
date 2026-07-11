@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio — Huỳnh Đức Nhân</title>
+<title>Báo cáo — Huỳnh Đức Nhân</title>
 <style>
   :root {
     --bg: #F5F3EE;
@@ -164,28 +164,22 @@
     margin: 0;
   }
 
-  /* ---------- Certificates ---------- */
+  /* ---------- Reports ---------- */
   .section {
     padding-block: var(--space-5);
   }
 
-  h2 {
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin: 0 0 var(--space-3);
-  }
-
-  .cert-grid {
+  .report-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-3);
   }
 
-  @media (max-width: 720px) {
-    .cert-grid { grid-template-columns: 1fr; }
+  @media (max-width: 900px) {
+    .report-grid { grid-template-columns: 1fr; }
   }
 
-  .cert-card {
+  .report-card {
     background: var(--bg-raised);
     border: 1px solid var(--line);
     border-radius: 6px;
@@ -196,7 +190,12 @@
     gap: var(--space-2);
   }
 
-  .cert-card .kicker {
+  .report-card.pending {
+    box-shadow: none;
+    border-style: dashed;
+  }
+
+  .report-card .kicker {
     display: inline-flex;
     align-self: flex-start;
     font-family: var(--font-mono);
@@ -209,56 +208,21 @@
     border-radius: 3px;
   }
 
-  .cert-card h3 {
-    font-size: 1.2rem;
+  .report-card h3 {
+    font-size: 1.1rem;
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.35;
   }
 
-  .cert-image {
-    display: block;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    box-shadow: 0 10px 24px -18px var(--shadow);
-  }
-
-  .cert-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .cert-meta {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    letter-spacing: 0.02em;
-  }
-
-  .cert-card p.desc {
-    font-size: 0.98rem;
-    line-height: 1.65;
+  .report-card p.desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: var(--ink-soft);
     margin: 0;
+    flex-grow: 1;
   }
 
-  .chip-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .chip {
-    font-size: 0.76rem;
-    color: var(--ink-soft);
-    background: var(--bg);
-    border: 1px solid var(--line);
-    padding: 0.3rem 0.6rem;
-    border-radius: 20px;
-  }
-
-  .cert-card .verify {
+  .report-card .action {
     margin-top: auto;
     align-self: flex-start;
     font-size: 0.88rem;
@@ -270,8 +234,21 @@
     border-radius: 3px;
     transition: background 0.15s ease;
   }
-  .cert-card .verify:hover { background: var(--accent-strong); }
-  .cert-card .verify:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
+  .report-card .action:hover { background: var(--accent-strong); }
+  .report-card .action:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
+
+  .report-card .pending-badge {
+    margin-top: auto;
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 0.5rem 0.9rem;
+    border-radius: 3px;
+  }
 
   footer {
     padding-block: var(--space-3);
@@ -298,8 +275,8 @@
       <li><a href="index.html">Trang chủ</a></li>
       <li><a href="index.html#about">Giới thiệu</a></li>
       <li><a href="index.html#dinh-huong">Định hướng</a></li>
-      <li><a href="#" class="active">Portfolio</a></li>
-      <li><a href="bao-cao.html">Báo cáo</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="#" class="active">Báo cáo</a></li>
       <li><a href="index.html#contact">Liên hệ</a></li>
     </ul>
   </div>
@@ -307,46 +284,34 @@
 
 <header class="page-header">
   <div class="wrap">
-    <p class="eyebrow">Portfolio</p>
-    <h1>Chứng chỉ tôi đã hoàn thành</h1>
-    <p class="lede">Hai chứng chỉ chuyên nghiệp từ Google (qua Coursera), hỗ trợ trực tiếp cho định hướng phân tích dữ liệu và tư duy quản lý dự án của mình.</p>
+    <p class="eyebrow">Báo cáo</p>
+    <h1>Báo cáo &amp; tài liệu</h1>
+    <p class="lede">Các báo cáo mình đã thực hiện trong quá trình học tập, gắn với định hướng phân tích dữ liệu và thị trường tài chính.</p>
   </div>
 </header>
 
 <main class="section">
   <div class="wrap">
-    <div class="cert-grid">
-      <div class="cert-card">
-        <span class="kicker">Chứng chỉ</span>
-        <h3>Google Business Intelligence Certificate</h3>
-        <span class="cert-meta">Google · qua Coursera — Hoàn thành 04/07/2025</span>
-        <a class="cert-image" href="https://www.credly.com/go/i3OhAQGw" target="_blank" rel="noopener">
-          <img src="chung-chi-bi.png" alt="Chứng chỉ Google Business Intelligence của Huỳnh Đức Nhân">
-        </a>
-        <p class="desc">Xây dựng quy trình biến dữ liệu thành insight, phát triển trực quan hóa dữ liệu và dashboard đáp ứng nhu cầu của doanh nghiệp.</p>
-        <div class="chip-row">
-          <span class="chip">Foundations of Business Intelligence</span>
-          <span class="chip">Data Models &amp; Pipelines</span>
-          <span class="chip">Dashboards &amp; Reports</span>
-        </div>
-        <a class="verify" href="https://www.credly.com/go/i3OhAQGw" target="_blank" rel="noopener">Xem chứng chỉ →</a>
+    <div class="report-grid">
+      <div class="report-card">
+        <span class="kicker">Kỹ thuật</span>
+        <h3>Báo cáo phân tích kỹ thuật</h3>
+        <p class="desc">Phân tích kỹ thuật cổ phiếu — đọc biểu đồ, xác định xu hướng và điểm vào/ra trên thị trường chứng khoán.</p>
+        <a class="action" href="https://drive.google.com/drive/folders/1gFI2mD5n9036HTZJJbvMryHdMjOiDC37?usp=sharing" target="_blank" rel="noopener">Xem báo cáo →</a>
       </div>
 
-      <div class="cert-card">
-        <span class="kicker">Chứng chỉ</span>
-        <h3>Google Project Management Professional Certificate</h3>
-        <span class="cert-meta">Google · qua Coursera — Hoàn thành 18/08/2025</span>
-        <a class="cert-image" href="https://www.credly.com/go/gQs6dEQk" target="_blank" rel="noopener">
-          <img src="chung-chi-pm.png" alt="Chứng chỉ Google Project Management của Huỳnh Đức Nhân">
-        </a>
-        <p class="desc">7 khóa học về khởi tạo, lập kế hoạch và triển khai dự án theo cả mô hình truyền thống lẫn Agile.</p>
-        <div class="chip-row">
-          <span class="chip">Project Initiation</span>
-          <span class="chip">Project Planning</span>
-          <span class="chip">Project Execution</span>
-          <span class="chip">Agile Project Management</span>
-        </div>
-        <a class="verify" href="https://www.credly.com/go/gQs6dEQk" target="_blank" rel="noopener">Xem chứng chỉ →</a>
+      <div class="report-card pending">
+        <span class="kicker">Khởi nghiệp</span>
+        <h3>Báo cáo dự án khởi nghiệp</h3>
+        <p class="desc">Xây dựng và trình bày ý tưởng kinh doanh khởi nghiệp.</p>
+        <span class="pending-badge">Sắp cập nhật</span>
+      </div>
+
+      <div class="report-card pending">
+        <span class="kicker">Tài chính</span>
+        <h3>Báo cáo tài chính</h3>
+        <p class="desc">Phân tích tình hình tài chính doanh nghiệp và cơ sở ra quyết định đầu tư.</p>
+        <span class="pending-badge">Sắp cập nhật</span>
       </div>
     </div>
   </div>
